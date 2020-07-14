@@ -33,17 +33,38 @@
                                                    value spaces.
            05 filler                               pic x(03)
                                                    value " - ".
-           05 diametro                             pic 9(03).
+           05 diametro                             pic 9(08).
            05 filler                               pic x(03)
                                                    value " - ".
            05 preco                                pic 9(03)v99.
            05 filler                               pic x(03)
                                                    value " - ".
-           05 preco_cm2                            pic 9(03)v99
+           05 preco_cm2                            pic 9(10)v99
                                                    value 0.
            05 filler                               pic x(03)
                                                    value " - ".
-           05 diferenca_rel                        pic 9(03)v99.
+           05 diferenca_rel                        pic 9(07)v99.
+
+       01  relatorio_tab.
+           05 nome_tab                             pic x(15)
+                                                   value "Tamanho".
+           05 filler                               pic x(03)
+                                                   value " - ".
+           05 diametro_tab                         pic x(08)
+                                                   value "Diametro".
+           05 filler                               pic x(03)
+                                                   value " - ".
+           05 preco_tab                            pic x(05)
+                                                   value "Preco".
+           05 filler                               pic x(03)
+                                                   value " - ".
+           05 preco_cm2_tab                        pic x(12)
+                                                   value "Preço po cm2".
+           05 filler                               pic x(03)
+                                                   value " - ".
+           05 diferenca_rel_tab                    pic x(09)
+                                                   value "Diferença".
+           05 filler                               pic x(03).
 
        77  aux                                     pic 9(03)v99.
        77  aux2                                    pic x(03).
@@ -188,10 +209,10 @@
            .
 
        imprimi section.
+           display relatorio_tab
 
            perform varying ind from 1 by 1 until ind > 20
                                            or nome(ind) = space
-
                display relatorio(ind)
 
 
